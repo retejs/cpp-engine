@@ -59,6 +59,9 @@ public:
 
   void process(JSON data) {
 
+    if (this->id.compare(data.id) != 0)
+      throw std::invalid_argument("IDs not compatible");
+
     this->nodes.clear();
     this->nodes = data.nodes;
 
